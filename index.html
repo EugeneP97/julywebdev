@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <body>
+        <h2>Item Display</h2>
+        <!-- Dropdown Menu -->
+        <select id="items">
+            <option value="">-- Select an Item --</option>
+        </select>
+    
+    
+    
+        <hr>
+    
+        <!-- Details Section -->
+        <p><strong>ID:</strong> <span id="itemId">-</span></p>
+        <p><strong>Name:</strong> <span id="itemName">-</span></p>
+        <p><strong>Category:</strong> <span id="itemCategory">-</span></p>
+        <p><strong>Inventory Amt.:</strong> <span id="itemInventory">-</span></p>
+        <p><strong>List price:</strong> <span id="itemPrice">-</span></p>
+    </body>
+
+    <script>
+
+        const items = [
+                {
+                    id: 1,
+                    name: "Mouse",
+                    category: "IT",
+                    inventory: 200,
+                    price: 240,
+                },
+                {
+                    id: 2,
+                    name: "Keyboard",
+                    category: "IT",
+                    inventory: 150,
+                    price: 490,
+                },
+                {
+                    id: 3,
+                    name: "Monitor",
+                    category: "IT",
+                    inventory: 75,
+                    price: 3200,
+                },
+                {
+                    id: 4,
+                    name: "USB Cable",
+                    category: "IT",
+                    inventory: 350,
+                    price: 120,
+                },
+                {
+                    id: 5,
+                    name: "Notebook",
+                    category: "Stationery",
+                    inventory: 500,
+                    price: 55,
+                },
+                {
+                    id: 6,
+                    name: "Pen",
+                    category: "Stationery",
+                    inventory: 900,
+                    price: 15,
+                },
+                {
+                    id: 7,
+                    name: "Desk Lamp",
+                    category: "Home",
+                    inventory: 120,
+                    price: 750,
+                },
+                {
+                    id: 8,
+                    name: "Water Bottle",
+                    category: "Lifestyle",
+                    inventory: 260,
+                    price: 210,
+                },
+                {
+                    id: 9,
+                    name: "Backpack",
+                    category: "Lifestyle",
+                    inventory: 95,
+                    price: 980,
+                },
+                {
+                    id: 10,
+                    name: "Phone Stand",
+                    category: "IT",
+                    inventory: 180,
+                    price: 160,
+                },
+                {
+                    id: 11,
+                    name: "Headphones",
+                    category: "IT",
+                    inventory: 130,
+                    price: 1450,
+                },
+            ];
+
+        const dropdown = document.getElementById('items');
+
+            items.forEach(item => {
+                const option = document.createElement('option');
+                option.value = item.id;
+                option.textContent = item.name;
+                dropdown.appendChild(option);
+            });
+
+        dropdown.addEventListener('change', function () {
+                const selectedItem = items.find(item => item.id == this.value);
+
+                if (selectedItem) {
+                    document.getElementById('itemId').textContent = selectedItem.id;
+                    document.getElementById('itemName').textContent = selectedItem.name;
+                    document.getElementById('itemCategory').textContent = selectedItem.category;
+                    document.getElementById('itemInventory').textContent = selectedItem.inventory;
+                    document.getElementById('itemPrice').textContent = selectedItem.price;
+                } else {
+                    document.getElementById('itemId').textContent = "-";
+                    document.getElementById('itemName').textContent = "-";
+                    document.getElementById('itemCategory').textContent = "-";
+                    document.getElementById('itemInventory').textContent = "-";
+                    document.getElementById('itemPrice').textContent = "-";
+                }
+            });
+
+    </script>
+</body>
+</html>
+
+
